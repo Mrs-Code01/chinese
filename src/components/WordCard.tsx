@@ -3,6 +3,7 @@ import SpeakButton from "./SpeakButton";
 import FavoriteButton from "./FavoriteButton";
 import HskBadge from "./HskBadge";
 import PhoneticGuide from "./PhoneticGuide";
+import SentenceGloss from "./SentenceGloss";
 
 export default function WordCard({ word }: { word: Word }) {
   return (
@@ -59,6 +60,7 @@ export default function WordCard({ word }: { word: Word }) {
         <p className="text-sm text-neutral-700 dark:text-neutral-300">
           {word.example.meaning}
         </p>
+        <SentenceGloss hanzi={word.example.hanzi} />
         <PhoneticGuide pinyin={word.example.pinyin} />
       </div>
     </div>

@@ -3,6 +3,7 @@ import SpeakButton from "./SpeakButton";
 import FavoriteButton from "./FavoriteButton";
 import HskBadge from "./HskBadge";
 import PhoneticGuide from "./PhoneticGuide";
+import SentenceGloss from "./SentenceGloss";
 
 export default function SentenceCard({ sentence }: { sentence: Sentence }) {
   return (
@@ -19,6 +20,7 @@ export default function SentenceCard({ sentence }: { sentence: Sentence }) {
       <p className="mt-2 text-base font-medium text-neutral-900 dark:text-neutral-100">
         {sentence.meaning}
       </p>
+      <SentenceGloss hanzi={sentence.hanzi} />
 
       <PhoneticGuide pinyin={sentence.pinyin} />
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Story, StoryToken } from "@/data/storyTypes";
 import { playChinese } from "@/lib/tts";
 import PhoneticGuide from "./PhoneticGuide";
+import GlossLine from "./GlossLine";
 
 export default function StoryReader({ story }: { story: Story }) {
   const [selected, setSelected] = useState<StoryToken | null>(null);
@@ -123,6 +124,9 @@ export default function StoryReader({ story }: { story: Story }) {
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               {sentence.translation}
             </p>
+            <div className="mt-1.5">
+              <GlossLine tokens={sentence.tokens.filter((t) => t.pinyin)} />
+            </div>
           </div>
         ))}
       </div>

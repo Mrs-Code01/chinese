@@ -36,6 +36,18 @@ pronunciation tip, and a note on exactly when to use it.
   "nǐ↘↗ hǎo↘↗"), generated automatically from the pinyin by
   `src/lib/pinyinPhonetics.ts` — not hand-written, so it works for every
   entry (past and future) with zero extra data-entry cost.
+- **Word-by-word gloss** under every sentence (topic sentences, word
+  examples, and story sentences): e.g. for "我想喝茶" it shows
+  `wǒ (I) xiǎng (want) hē (drink) chá (tea)`, so you can tell which
+  syllable means what instead of just seeing the sentence's overall
+  translation. Generated automatically by segmenting the hanzi against the
+  app's own vocabulary plus a supplementary dictionary of common
+  grammar words/pronouns not otherwise taught as their own vocabulary card
+  (`src/lib/glossSentence.ts`, `src/lib/glossDictionary.ts`) — currently
+  covers ~93% of all hanzi across the dataset; run
+  `npx tsx scripts/check-gloss-coverage.ts` to see the current number and
+  the most common still-unglossed characters as content grows. Words it
+  can't confidently gloss show as plain hanzi rather than a guess.
 - **🎨 Theme** picker in the header: 12 accent colors (red, orange, amber,
   yellow, green, emerald, teal, cyan, blue, indigo, purple, pink) applied
   instantly across the whole site and remembered on your device
