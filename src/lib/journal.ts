@@ -1,5 +1,4 @@
 const JOURNAL_KEY = "hs-journal-notes";
-const SECRET_KEY = "hs-journal-secret";
 
 export type JournalNotes = Record<string, string>;
 
@@ -41,28 +40,13 @@ export function setLocalNote(key: string, text: string): JournalNotes {
   return notes;
 }
 
-// --- Passphrase, remembered per device ---
-
-export function getStoredSecret(): string | null {
-  if (typeof window === "undefined") return null;
-  try {
-    return window.localStorage.getItem(SECRET_KEY);
-  } catch {
-    return null;
-  }
-}
-
-export function setStoredSecret(secret: string | null): void {
-  if (typeof window === "undefined") return;
-  try {
-    if (secret) window.localStorage.setItem(SECRET_KEY, secret);
-    else window.localStorage.removeItem(SECRET_KEY);
-  } catch {
-    // ignore storage errors
-  }
-}
-
 // --- Server sync, so notes follow you across devices ---
+//
+// The passphrase is intentionally NEVER persisted (no localStorage,
+// sessionStorage, or cookie) - it lives only in React state for the
+// lifetime of the page. Refreshing, closing the tab, or someone else
+// opening the browser later always lands back on the passphrase gate,
+// so a note is never shown "by mistake".
 
 export type RemoteFetchResult =
   | { ok: true; notes: JournalNotes }

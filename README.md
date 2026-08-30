@@ -42,7 +42,8 @@ pronunciation tip, and a note on exactly when to use it.
   (`src/components/ColorThemePicker.tsx`, `src/lib/colorThemes.ts`).
 - **Learning Journal** (`/journal`): a calendar — click any date to jot down
   what you learned that day. Days with a note get a highlighted dot.
-  Protected by a passphrase you set once per device, and synced through a
+  Protected by a passphrase (never remembered — it re-locks on every
+  refresh, so nobody can stumble onto it), and synced through a
   small server API (`src/app/api/journal/route.ts`) so your notes follow you
   across every device, not just the one you wrote them on. See "Setting up
   the Journal" below to enable real cross-device persistence.

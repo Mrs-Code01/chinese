@@ -4,11 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   dateKey,
-  loadLocalNotes,
   saveLocalNotes,
   setLocalNote,
-  getStoredSecret,
-  setStoredSecret,
   fetchRemoteNotes,
   pushRemoteNote,
   type JournalNotes,
@@ -20,7 +17,9 @@ const MONTH_LABELS = [
   "July", "August", "September", "October", "November", "December",
 ];
 
-type SyncStatus = "checking" | "synced" | "offline" | "not-configured" | "gate";
+// The passphrase is kept only in memory (never persisted), so the gate
+// always reappears on refresh - see the note in src/lib/journal.ts.
+type SyncStatus = "synced" | "offline" | "gate";
 type SaveStatus = "idle" | "saving" | "saved" | "offline" | "error";
 
 function daysInMonth(year: number, month: number): number {
@@ -43,7 +42,7 @@ export default function JournalCalendar() {
     todayKey: "",
     notes: {},
     secret: null,
-    syncStatus: "checking",
+    syncStatus: "gate",
   });
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [draft, setDraft] = useState("");
@@ -54,36 +53,20 @@ export default function JournalCalendar() {
   const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    // Real date + localStorage must be read after mount to avoid an
-    // SSR/client mismatch (today's date differs from build time).
-    async function init() {
+    // The real "today" must be read after mount to avoid an SSR/client
+    // mismatch (the build-time date differs from the visitor's date).
+    // No secret is ever read back here - the gate always starts locked.
+    function init() {
       const now = new Date();
-      const localNotes = loadLocalNotes();
-      const secret = getStoredSecret();
-
       setState({
         mounted: true,
         viewYear: now.getFullYear(),
         viewMonth: now.getMonth(),
         todayKey: dateKey(now),
-        notes: localNotes,
-        secret,
-        syncStatus: secret ? "checking" : "gate",
+        notes: {},
+        secret: null,
+        syncStatus: "gate",
       });
-
-      if (secret) {
-        const result = await fetchRemoteNotes(secret);
-        if (result.ok) {
-          setState((s) => ({ ...s, notes: result.notes, syncStatus: "synced" }));
-        } else if (result.status === 401) {
-          setStoredSecret(null);
-          setState((s) => ({ ...s, secret: null, syncStatus: "gate" }));
-        } else if (result.status === 500) {
-          setState((s) => ({ ...s, syncStatus: "not-configured" }));
-        } else {
-          setState((s) => ({ ...s, syncStatus: "offline" }));
-        }
-      }
     }
     init();
   }, []);
@@ -100,7 +83,6 @@ export default function JournalCalendar() {
     const result = await fetchRemoteNotes(candidate);
     setGateChecking(false);
     if (result.ok) {
-      setStoredSecret(candidate);
       saveLocalNotes(result.notes);
       setState((s) => ({ ...s, secret: candidate, notes: result.notes, syncStatus: "synced" }));
       setGateInput("");
@@ -137,7 +119,6 @@ export default function JournalCalendar() {
     const result = await pushRemoteNote(secret, key, text);
     if (result.ok) setSaveStatus("saved");
     else if (result.status === 401) {
-      setStoredSecret(null);
       setState((s) => ({ ...s, secret: null, syncStatus: "gate" }));
     } else setSaveStatus("offline");
   }
@@ -178,10 +159,8 @@ export default function JournalCalendar() {
   const selectedDate = selectedKey ? new Date(`${selectedKey}T00:00:00`) : null;
 
   const SYNC_BADGE: Record<SyncStatus, { label: string; className: string }> = {
-    checking: { label: "Checking sync…", className: "bg-neutral-100 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400" },
     synced: { label: "✓ Synced across devices", className: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300" },
     offline: { label: "⚠ Offline - saved on this device only", className: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300" },
-    "not-configured": { label: "⚠ Sync not set up yet", className: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300" },
     gate: { label: "", className: "" },
   };
 
