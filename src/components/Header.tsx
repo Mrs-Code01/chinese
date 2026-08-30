@@ -40,7 +40,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden flex-wrap items-center gap-x-4 gap-y-1 text-sm font-medium text-neutral-600 dark:text-neutral-300 min-[1100px]:flex">
+        <nav className="hidden flex-wrap items-center gap-x-5 gap-y-1 text-sm font-medium text-neutral-600 dark:text-neutral-300 min-[1400px]:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -53,12 +53,12 @@ export default function Header() {
         </nav>
 
         <div className="flex flex-1 items-center justify-end gap-2">
-          <div className="min-w-0 flex-1 sm:max-w-xs min-[1100px]:max-w-72">
+          <div className="min-w-0 flex-1 sm:max-w-xs min-[1400px]:max-w-72">
             <Suspense fallback={null}>
               <SearchBox compact />
             </Suspense>
           </div>
-          <div className="hidden items-center gap-2 min-[1100px]:flex">
+          <div className="hidden items-center gap-2 min-[1400px]:flex">
             <VoiceSettings />
             <ColorThemePicker />
           </div>
@@ -67,7 +67,7 @@ export default function Header() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-lg text-neutral-600 transition hover:border-brand-300 hover:text-brand-600 min-[1100px]:hidden dark:border-neutral-700 dark:text-neutral-300 dark:hover:text-brand-400"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-lg text-neutral-600 transition hover:border-brand-300 hover:text-brand-600 min-[1400px]:hidden dark:border-neutral-700 dark:text-neutral-300 dark:hover:text-brand-400"
           >
             {menuOpen ? "✕" : "☰"}
           </button>
@@ -75,7 +75,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-neutral-200 px-4 py-3 min-[1100px]:hidden dark:border-neutral-800">
+        <nav className="border-t border-neutral-200 px-4 py-3 min-[1400px]:hidden dark:border-neutral-800">
           <div className="mx-auto flex max-w-6xl flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <Link
