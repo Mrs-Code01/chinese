@@ -109,6 +109,18 @@ export const categories: Category[] = [
     icon: "\u{1F31B}",
     description: "Waking up, commuting, and the everyday actions that make up your day.",
   },
+  {
+    slug: "money-banking",
+    name: "Money & Banking",
+    icon: "\u{1F3E6}",
+    description: "Opening accounts, transfers, exchange rates, and managing money as a resident.",
+  },
+  {
+    slug: "idioms-proverbs",
+    name: "Idioms & Proverbs",
+    icon: "\u{1F4DC}",
+    description: "Classic chengyu and sayings that make your Chinese sound natural and culturally fluent.",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {
