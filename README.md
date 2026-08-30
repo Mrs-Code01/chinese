@@ -105,30 +105,43 @@ in `public/audio/` and should be committed alongside the updated manifest.
 
 ## Setting up the Journal (cross-device sync)
 
-The Learning Journal (`/journal`) needs two environment variables set on
-your deployment (in Vercel: Project → Settings → Environment Variables) to
-actually persist across devices instead of just the one browser you're on:
+The Learning Journal (`/journal`) needs a database and a passphrase set as
+environment variables on your deployment (in Vercel: Project → Settings →
+Environment Variables) to actually persist across devices instead of just
+the one browser you're on. Notes are stored in [Supabase](https://supabase.com)
+(free tier, no credit card).
 
-1. **`JOURNAL_SECRET`** — any passphrase you make up (e.g. a random
+1. **Create a Supabase project** at [supabase.com](https://supabase.com)
+   (sign up with email or GitHub).
+2. **Create the notes table** — in your project, open the **SQL Editor**
+   and run:
+   ```sql
+   create table journal_notes (
+     date text primary key,
+     text text not null,
+     updated_at timestamptz not null default now()
+   );
+   ```
+3. **Copy two values** from Project Settings → API into your Vercel
+   project's environment variables:
+   - **`SUPABASE_URL`** — the "Project URL".
+   - **`SUPABASE_SERVICE_ROLE_KEY`** — the "service_role" secret key (not
+     the "anon" public key). This is used only in the server API route and
+     never reaches the browser, so it's safe to use here despite being a
+     powerful key — never put it in client-side code.
+4. **Set `JOURNAL_SECRET`** — any passphrase you make up (e.g. a random
    sentence). This is what protects your journal, since the site itself has
    no login — enter the same passphrase on every device you use it from.
    Without this set, the `/journal` API refuses all requests.
-2. **A database** — the API stores notes in [Upstash](https://upstash.com)
-   Redis. In your Vercel project: **Storage** tab → **Create Database** →
-   pick the Upstash Redis (or "Redis") integration → **Connect to Project**.
-   Vercel automatically adds `UPSTASH_REDIS_REST_URL` and
-   `UPSTASH_REDIS_REST_TOKEN` to your project's environment variables — no
-   manual copy-pasting of keys needed. Free tier, no credit card required
-   for personal-scale usage.
 
-Redeploy after adding these. Without a database connected, the app still
+Redeploy after adding these. Without Supabase connected, the app still
 works using an in-memory fallback — but that resets every time the server
 restarts, so notes won't actually survive across devices or visits; it's
 only there so local development works out of the box.
 
 For local development, add `JOURNAL_SECRET=whatever-you-want` to
-`.env.local` (gitignored) to test the passphrase gate; leave the Upstash
-vars unset locally unless you want to test against a real database too.
+`.env.local` (gitignored) to test the passphrase gate; leave the Supabase
+vars unset locally unless you want to test against a real project too.
 
 ## Getting started
 
