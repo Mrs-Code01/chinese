@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Word, Sentence } from "@/data/types";
 import SpeakButton from "./SpeakButton";
 import HskBadge from "./HskBadge";
+import PhoneticGuide from "./PhoneticGuide";
 import { setProgress, type ProgressStatus } from "@/lib/storage";
 
 type Item =
@@ -132,7 +133,10 @@ export default function FlashcardDeck({ items }: { items: Item[] }) {
             <p className="mt-2 text-center text-lg text-neutral-500 dark:text-neutral-400">
               {pinyin}
             </p>
-            <p className="mt-1 text-center text-xl font-semibold">{meaning}</p>
+            <div className="mx-auto max-w-md">
+              <PhoneticGuide pinyin={pinyin} />
+            </div>
+            <p className="mt-2 text-center text-xl font-semibold">{meaning}</p>
             <div className="mx-auto mt-4 max-w-md">{detail}</div>
           </div>
         )}

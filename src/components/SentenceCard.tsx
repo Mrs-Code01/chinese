@@ -2,6 +2,7 @@ import type { Sentence } from "@/data/types";
 import SpeakButton from "./SpeakButton";
 import FavoriteButton from "./FavoriteButton";
 import HskBadge from "./HskBadge";
+import PhoneticGuide from "./PhoneticGuide";
 
 export default function SentenceCard({ sentence }: { sentence: Sentence }) {
   return (
@@ -18,6 +19,8 @@ export default function SentenceCard({ sentence }: { sentence: Sentence }) {
       <p className="mt-2 text-base font-medium text-neutral-900 dark:text-neutral-100">
         {sentence.meaning}
       </p>
+
+      <PhoneticGuide pinyin={sentence.pinyin} />
 
       <div className="mt-3 flex items-center gap-2">
         <HskBadge level={sentence.hsk} />

@@ -22,6 +22,11 @@ pronunciation tip, and a note on exactly when to use it.
   note explaining the real-life context.
 - **Text-to-speech** on every card (🔊 button), using the browser's built-in
   Chinese voice — no setup required.
+- **"Sounds like" phonetic guide** on every card: an English-phonetic
+  approximation (e.g. "nee-how") plus a per-syllable tone-melody line (e.g.
+  "nǐ↘↗ hǎo↘↗"), generated automatically from the pinyin by
+  `src/lib/pinyinPhonetics.ts` — not hand-written, so it works for every
+  entry (past and future) with zero extra data-entry cost.
 - **Favorites** (☆) saved to your device via `localStorage`.
 - **Flashcards** mode: flip cards, filter by topic/HSK/favorites, mark
   "still learning" vs "know this" (progress saved locally).

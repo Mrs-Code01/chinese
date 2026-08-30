@@ -2,6 +2,7 @@ import type { Word } from "@/data/types";
 import SpeakButton from "./SpeakButton";
 import FavoriteButton from "./FavoriteButton";
 import HskBadge from "./HskBadge";
+import PhoneticGuide from "./PhoneticGuide";
 
 export default function WordCard({ word }: { word: Word }) {
   return (
@@ -18,6 +19,8 @@ export default function WordCard({ word }: { word: Word }) {
           <FavoriteButton id={word.id} />
         </div>
       </div>
+
+      <PhoneticGuide pinyin={word.pinyin} />
 
       <div className="mt-2 flex flex-wrap items-center gap-2">
         <HskBadge level={word.hsk} />
@@ -56,6 +59,7 @@ export default function WordCard({ word }: { word: Word }) {
         <p className="text-sm text-neutral-700 dark:text-neutral-300">
           {word.example.meaning}
         </p>
+        <PhoneticGuide pinyin={word.example.pinyin} />
       </div>
     </div>
   );
