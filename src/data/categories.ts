@@ -1,0 +1,116 @@
+import type { Category } from "./types";
+
+export const categories: Category[] = [
+  {
+    slug: "greetings-basics",
+    name: "Greetings & Basics",
+    icon: "\u{1F44B}",
+    description: "Hellos, goodbyes, politeness, and the words you'll use in almost every conversation.",
+  },
+  {
+    slug: "numbers-time",
+    name: "Numbers & Time",
+    icon: "\u{1F550}",
+    description: "Counting, dates, clock time, days of the week — the building blocks for scheduling your life.",
+  },
+  {
+    slug: "family",
+    name: "Family",
+    icon: "\u{1F46A}",
+    description: "Talking about parents, siblings, spouses, and relatives — Chinese has a title for everyone.",
+  },
+  {
+    slug: "home",
+    name: "At Home",
+    icon: "\u{1F3E0}",
+    description: "Rooms, furniture, chores, and everyday phrases for apartment and household life.",
+  },
+  {
+    slug: "food-dining",
+    name: "Food & Dining",
+    icon: "\u{1F962}",
+    description: "Ordering food, restaurant etiquette, tastes, and everyday meals.",
+  },
+  {
+    slug: "shopping",
+    name: "Shopping & Money",
+    icon: "\u{1F6CD}️",
+    description: "Bargaining, paying, sizes, and handling money in shops and markets.",
+  },
+  {
+    slug: "workplace",
+    name: "At the Workplace",
+    icon: "\u{1F4BC}",
+    description: "Meetings, emails, colleagues, and office small talk for your new job in China.",
+  },
+  {
+    slug: "school",
+    name: "At School",
+    icon: "\u{1F3EB}",
+    description: "Classrooms, studying, exams, and interacting with teachers and classmates.",
+  },
+  {
+    slug: "travel-transport",
+    name: "Travel & Transportation",
+    icon: "✈️",
+    description: "Airports, trains, taxis, and everything you need to get around China.",
+  },
+  {
+    slug: "directions",
+    name: "Directions & Places",
+    icon: "\u{1F5FA}️",
+    description: "Asking for and giving directions, and naming common places around a city.",
+  },
+  {
+    slug: "health",
+    name: "Health & Emergencies",
+    icon: "\u{1FA7A}",
+    description: "Describing symptoms, seeing a doctor, and asking for help in an emergency.",
+  },
+  {
+    slug: "weather",
+    name: "Weather & Seasons",
+    icon: "☀️",
+    description: "Talking about the weather, temperature, and seasons — great small-talk material.",
+  },
+  {
+    slug: "emotions",
+    name: "Feelings & Emotions",
+    icon: "\u{1F60A}",
+    description: "Expressing how you feel, from happy and tired to nervous and proud.",
+  },
+  {
+    slug: "people-appearance",
+    name: "People & Appearance",
+    icon: "\u{1F9CD}",
+    description: "Describing people's looks, personality, and age.",
+  },
+  {
+    slug: "technology-phone",
+    name: "Technology & Phone",
+    icon: "\u{1F4F1}",
+    description: "Phones, apps, WeChat, the internet, and other everyday tech vocabulary.",
+  },
+  {
+    slug: "social-smalltalk",
+    name: "Social & Small Talk",
+    icon: "\u{1F4AC}",
+    description: "Making friends, invitations, and the everyday chit-chat that builds relationships.",
+  },
+  {
+    slug: "hobbies-leisure",
+    name: "Hobbies & Leisure",
+    icon: "⚽",
+    description: "Sports, music, movies, and talking about what you do for fun.",
+  },
+  {
+    slug: "daily-routine",
+    name: "Daily Routine",
+    icon: "\u{1F31B}",
+    description: "Waking up, commuting, and the everyday actions that make up your day.",
+  },
+];
+
+export function getCategory(slug: string): Category | undefined {
+  return categories.find((c) => c.slug === slug);
+}
