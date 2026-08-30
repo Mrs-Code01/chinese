@@ -121,6 +121,18 @@ export const categories: Category[] = [
     icon: "\u{1F4DC}",
     description: "Classic chengyu and sayings that make your Chinese sound natural and culturally fluent.",
   },
+  {
+    slug: "measure-words",
+    name: "Measure Words",
+    icon: "\u{1F522}",
+    description: "The tricky little counting words (个/张/条/杯...) that go with every noun in Chinese.",
+  },
+  {
+    slug: "emergency-safety",
+    name: "Emergency & Safety",
+    icon: "\u{1F6A8}",
+    description: "Police, fire, lost documents, and the phrases you hope to never need but should still know.",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {

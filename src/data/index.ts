@@ -21,6 +21,8 @@ import * as hobbiesLeisure from "./content/hobbies-leisure";
 import * as dailyRoutine from "./content/daily-routine";
 import * as moneyBanking from "./content/money-banking";
 import * as idiomsProverbs from "./content/idioms-proverbs";
+import * as measureWords from "./content/measure-words";
+import * as emergencySafety from "./content/emergency-safety";
 
 const modules = [
   greetingsBasics,
@@ -43,6 +45,8 @@ const modules = [
   dailyRoutine,
   moneyBanking,
   idiomsProverbs,
+  measureWords,
+  emergencySafety,
 ];
 
 export const words: Word[] = modules.flatMap((m) => m.words);
