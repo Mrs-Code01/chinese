@@ -6,13 +6,15 @@ pronunciation tip, and a note on exactly when to use it.
 
 ## What's here right now
 
-- **550 words** and **520 sentences**, hand-written (not auto-translated),
-  across **25 real-life topics**: greetings, numbers & time, family, home,
+- **590 words** and **775+ sentences**, hand-written (not auto-translated),
+  across **26 real-life topics**: greetings, numbers & time, family, home,
   food & dining, shopping, workplace, school, travel & transport, directions,
   health, weather, emotions, people & appearance, technology/phone, social &
   small talk, hobbies, daily routine, money & banking, idioms & proverbs,
-  measure words, emergency & safety, clothing, relationships & dating, and
-  essential HSK1 basics (question words, core verbs/adjectives, connectors).
+  measure words, emergency & safety, clothing, relationships & dating,
+  essential HSK1 basics (question words, core verbs/adjectives, connectors),
+  and common verbs (40 everyday action verbs each put to work in ~7
+  different sentences, so you see how they're actually used).
 - Every entry is tagged with an **HSK level (1–6)** so you can browse by
   topic or by difficulty.
 - Every word has: hanzi, pinyin with tone marks, part of speech, English

@@ -151,6 +151,12 @@ export const categories: Category[] = [
     icon: "\u{1F9F1}",
     description: "Core HSK1 building blocks — question words, common verbs, adjectives, and connectors used in almost every sentence.",
   },
+  {
+    slug: "common-verbs",
+    name: "Common Verbs",
+    icon: "\u{1F3C3}",
+    description: "40 everyday action verbs (say, go, come, use, help, write...) each put to work in many different sentences, so you see how they actually get used.",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {

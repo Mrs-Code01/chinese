@@ -26,6 +26,7 @@ import * as emergencySafety from "./content/emergency-safety";
 import * as clothingAppearance from "./content/clothing-appearance";
 import * as relationshipsDating from "./content/relationships-dating";
 import * as essentialBasics from "./content/essential-basics";
+import * as commonVerbs from "./content/common-verbs";
 
 const modules = [
   greetingsBasics,
@@ -53,6 +54,7 @@ const modules = [
   clothingAppearance,
   relationshipsDating,
   essentialBasics,
+  commonVerbs,
 ];
 
 export const words: Word[] = modules.flatMap((m) => m.words);

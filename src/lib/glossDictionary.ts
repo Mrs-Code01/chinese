@@ -318,4 +318,9 @@ export const GLOSS_DICTIONARY: Record<string, { pinyin: string; meaning: string 
   马克: { pinyin: "Mǎkè", meaning: "Mark (a name)" },
   罗马: { pinyin: "Luómǎ", meaning: "Rome" },
   马力: { pinyin: "mǎlì", meaning: "horsepower" },
+
+  // Third pass: caught while reviewing the common-verbs sentence batch.
+  清楚: { pinyin: "qīngchu", meaning: "clear / clearly" },
+  实话: { pinyin: "shíhuà", meaning: "the truth" },
+  实: { pinyin: "shí", meaning: "real / true" },
 };
