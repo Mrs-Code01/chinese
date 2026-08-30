@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import SearchBox from "./SearchBox";
+import VoiceSettings from "./VoiceSettings";
 
 const NAV_LINKS = [
   { href: "/topics", label: "Topics" },
@@ -34,10 +35,13 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="sm:ml-auto sm:w-72">
-          <Suspense fallback={null}>
-            <SearchBox compact />
-          </Suspense>
+        <div className="flex items-center gap-2 sm:ml-auto">
+          <div className="w-full sm:w-72">
+            <Suspense fallback={null}>
+              <SearchBox compact />
+            </Suspense>
+          </div>
+          <VoiceSettings />
         </div>
       </div>
     </header>

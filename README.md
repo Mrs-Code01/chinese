@@ -22,7 +22,13 @@ pronunciation tip, and a note on exactly when to use it.
 - Every sentence has: hanzi, pinyin, English meaning, HSK level, and a usage
   note explaining the real-life context.
 - **Text-to-speech** on every card (🔊 button), using the browser's built-in
-  Chinese voice — no setup required.
+  Chinese voice — no setup required. A **🔊 Voice** picker in the header
+  (`src/components/VoiceSettings.tsx`) auto-ranks every Chinese voice your
+  browser/OS has installed (favoring genuinely natural neural voices like
+  Windows/Edge's "Online (Natural)" voices, Google's voice, and macOS's
+  enhanced voices over old robotic ones), lets you preview and pick one, and
+  explains how to install a better free voice if your device only has
+  low-quality ones.
 - **"Sounds like" phonetic guide** on every card: an English-phonetic
   approximation (e.g. "nee-how") plus a per-syllable tone-melody line (e.g.
   "nǐ↘↗ hǎo↘↗"), generated automatically from the pinyin by
