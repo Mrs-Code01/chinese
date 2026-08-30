@@ -34,13 +34,15 @@ pronunciation tip, and a note on exactly when to use it.
 - **Quiz** mode: multiple-choice, mixing hanzi→meaning and meaning→hanzi
   questions, filterable by topic/HSK/question count.
 - **Search** across all words and sentences by hanzi, pinyin, or English.
-- **Story Book** (`/stories`): 12 short stories (growing toward 50) built
-  from real vocabulary, tied to the theme of moving to and living in China
-  (airport arrival, apartment hunting, first day at work, Spring Festival,
-  and more). Every word in every story is clickable — tap it to see its
-  meaning, pinyin, an optional grammar note explaining why that word is used
-  there, and hear it spoken aloud. Each sentence also shows its English
-  translation and has its own play button.
+- **Story Book** (`/stories`): 42 stories (toward a target of 50) built from
+  real vocabulary, tied to the theme of moving to and living in China
+  (airport arrival, apartment hunting, hiking, a Chinese wedding, learning
+  to drive, a year-in-review, and more). Pinyin is shown under every word by
+  default. Tap any word to see its meaning, an English pronunciation guide,
+  an optional grammar note explaining why that word is used there (e.g. why
+  了 sits in a different spot from sentence to sentence), and hear it spoken
+  aloud. Each sentence also shows its English translation and has its own
+  play button.
 
 This is intentionally a **solid starter core, not the finish line** — see
 "Growing toward 5,000 + 5,000" below for how to keep expanding it.
@@ -160,7 +162,7 @@ The 4th tuple item (optional) is a short grammar/usage tip shown only for
 that word in that sentence — use it sparingly, just for the genuinely
 notable words (了, 的, measure words, aspect markers, etc.), not every word.
 Register new files in the `storyModules` array in `src/data/stories/index.ts`.
-Currently at 12 stories, toward a target of 50.
+Currently at 42 stories, toward a target of 50.
 
 ## Notes on accuracy
 

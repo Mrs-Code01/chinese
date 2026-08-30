@@ -14,7 +14,7 @@ export const stories: Story[] = [
         tokens: t([
           ["我", "wǒ", "I, me"],
           ["到", "dào", "to arrive"],
-          ["了", "le", "[completed action marker]", "了 right after a verb shows the action is done — 'I have arrived.'"],
+          ["了", "le", "[completed action marker]", "了 attaches right after the verb 到, before the object 中国. Later in the subway story, 到站了 puts 了 at the end instead (after the object) — same verb, different nuance."],
           ["中国", "Zhōngguó", "China"],
           "。",
         ]),
@@ -26,7 +26,7 @@ export const stories: Story[] = [
           ["在", "zài", "in, at"],
           ["北京", "Běijīng", "Beijing"],
           ["降落", "jiàngluò", "to land"],
-          ["了", "le", "[completed action marker]"],
+          ["了", "le", "[completed action marker]", "了 lands at the very end here simply because 降落 has no object after it (北京 already appeared earlier, attached to 在) — there's nowhere else for 了 to go."],
           "。",
         ]),
       },
@@ -619,7 +619,7 @@ export const stories: Story[] = [
         tokens: t([
           ["到", "dào", "to arrive"],
           ["站", "zhàn", "station"],
-          ["了", "le", "[change of state]"],
+          ["了", "le", "[change of state]", "了 sits at the very end, after the object 站 — this reports the whole event as news ('I've arrived'). Compare 我到了中国 in the airport story, where 了 sits right after 到, before the object — same verb, different le position!"],
           "，",
           ["我", "wǒ", "I, me"],
           ["下车", "xiàchē", "to get off (a vehicle)"],

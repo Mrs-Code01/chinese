@@ -65,7 +65,8 @@ export default function StoryReader({ story }: { story: Story }) {
           </div>
         ) : (
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            👆 Tap any word below to see its meaning, pinyin, and hear it spoken.
+            👆 Pinyin is shown under every word. Tap any word for its meaning,
+            an English pronunciation guide, and to hear it spoken aloud.
           </p>
         )}
       </div>
@@ -73,32 +74,48 @@ export default function StoryReader({ story }: { story: Story }) {
       <div className="mt-8 space-y-6">
         {story.sentences.map((sentence, idx) => (
           <div key={idx} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="flex flex-wrap items-baseline gap-x-1 gap-y-2 font-serif text-2xl leading-relaxed">
-              {sentence.tokens.map((tok, tIdx) =>
-                tok.pinyin ? (
-                  <button
-                    key={tIdx}
-                    type="button"
-                    onClick={() => setSelected(tok)}
-                    className={`rounded px-0.5 underline decoration-dotted decoration-2 underline-offset-4 transition hover:bg-red-50 hover:text-red-700 dark:hover:bg-red-950/40 dark:hover:text-red-400 ${
-                      selected === tok ? "bg-red-100 text-red-700 dark:bg-red-950/60 dark:text-red-400" : ""
-                    }`}
-                  >
-                    {tok.hanzi}
-                  </button>
-                ) : (
-                  <span key={tIdx} className="text-neutral-400">
-                    {tok.hanzi}
-                  </span>
-                )
-              )}
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex flex-1 flex-wrap items-end gap-x-0.5 gap-y-2">
+                {sentence.tokens.map((tok, tIdx) =>
+                  tok.pinyin ? (
+                    <button
+                      key={tIdx}
+                      type="button"
+                      onClick={() => setSelected(tok)}
+                      className={`flex flex-col items-center rounded px-1 pb-0.5 pt-1 transition hover:bg-red-50 dark:hover:bg-red-950/40 ${
+                        selected === tok ? "bg-red-100 dark:bg-red-950/60" : ""
+                      }`}
+                    >
+                      <span
+                        className={`border-b border-dotted border-neutral-300 font-serif text-2xl leading-tight dark:border-neutral-600 ${
+                          selected === tok ? "text-red-700 dark:text-red-400" : ""
+                        }`}
+                      >
+                        {tok.hanzi}
+                      </span>
+                      <span className="text-xs leading-tight text-neutral-500 dark:text-neutral-400">
+                        {tok.pinyin}
+                      </span>
+                    </button>
+                  ) : (
+                    <span key={tIdx} className="flex flex-col items-center px-0.5 pb-0.5 pt-1">
+                      <span className="font-serif text-2xl leading-tight text-neutral-400">
+                        {tok.hanzi}
+                      </span>
+                      <span className="text-xs leading-tight text-transparent" aria-hidden>
+                        ·
+                      </span>
+                    </span>
+                  )
+                )}
+              </div>
               <button
                 type="button"
                 onClick={() =>
                   speakChinese(sentence.tokens.map((t) => t.hanzi).join(""), 0.8)
                 }
                 aria-label="Play this sentence"
-                className="ml-2 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-sm align-middle dark:border-neutral-700 dark:bg-neutral-800"
+                className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-sm dark:border-neutral-700 dark:bg-neutral-800"
               >
                 🔊
               </button>
