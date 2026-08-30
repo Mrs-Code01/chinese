@@ -19,12 +19,12 @@ export default function StoriesPage() {
           <Link
             key={story.slug}
             href={`/stories/${story.slug}`}
-            className="group rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+            className="group rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
           >
             <div className="flex items-center gap-3">
               <span className="text-3xl">{story.icon}</span>
               <div>
-                <p className="text-lg font-semibold group-hover:text-red-600 dark:group-hover:text-red-400">
+                <p className="text-lg font-semibold group-hover:text-brand-600 dark:group-hover:text-brand-400">
                   {story.hanziTitle}
                 </p>
                 <p className="text-xs text-neutral-500 dark:text-neutral-400">

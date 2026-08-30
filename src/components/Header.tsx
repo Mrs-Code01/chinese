@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import SearchBox from "./SearchBox";
 import VoiceSettings from "./VoiceSettings";
+import ColorThemePicker from "./ColorThemePicker";
 
 const NAV_LINKS = [
   { href: "/topics", label: "Topics" },
@@ -19,7 +20,7 @@ export default function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2 text-lg font-bold">
           <span aria-hidden>🀄</span>
           <span>
-            <span className="text-red-600 dark:text-red-400">Hanyu</span>Sprint
+            <span className="text-brand-600 dark:text-brand-400">Hanyu</span>Sprint
           </span>
         </Link>
 
@@ -28,7 +29,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="whitespace-nowrap transition hover:text-red-600 dark:hover:text-red-400"
+              className="whitespace-nowrap transition hover:text-brand-600 dark:hover:text-brand-400"
             >
               {link.label}
             </Link>
@@ -42,6 +43,7 @@ export default function Header() {
             </Suspense>
           </div>
           <VoiceSettings />
+          <ColorThemePicker />
         </div>
       </div>
     </header>

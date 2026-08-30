@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <section className="text-center">
-        <p className="text-sm font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+        <p className="text-sm font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-400">
           你好！Nǐ hǎo!
         </p>
         <h1 className="mt-2 text-3xl font-bold sm:text-4xl">
@@ -29,7 +29,7 @@ export default function HomePage() {
       <section className="mt-10 flex flex-wrap justify-center gap-3">
         <Link
           href="/topics"
-          className="rounded-full bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-red-700"
+          className="rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
         >
           Browse by topic
         </Link>
@@ -62,7 +62,7 @@ export default function HomePage() {
       <section className="mt-14">
         <div className="flex items-baseline justify-between">
           <h2 className="text-xl font-bold">Topics</h2>
-          <Link href="/topics" className="text-sm font-medium text-red-600 dark:text-red-400">
+          <Link href="/topics" className="text-sm font-medium text-brand-600 dark:text-brand-400">
             See all →
           </Link>
         </div>
@@ -73,12 +73,12 @@ export default function HomePage() {
               <Link
                 key={cat.slug}
                 href={`/topics/${cat.slug}`}
-                className="group rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+                className="group rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{cat.icon}</span>
                   <div>
-                    <p className="font-semibold group-hover:text-red-600 dark:group-hover:text-red-400">
+                    <p className="font-semibold group-hover:text-brand-600 dark:group-hover:text-brand-400">
                       {cat.name}
                     </p>
                     <p className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -101,7 +101,7 @@ export default function HomePage() {
 function StatCard({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-2xl border border-neutral-200 bg-white p-4 text-center shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
-      <p className="text-2xl font-bold text-red-600 dark:text-red-400">{value}+</p>
+      <p className="text-2xl font-bold text-brand-600 dark:text-brand-400">{value}+</p>
       <p className="text-xs font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
         {label}
       </p>

@@ -19,7 +19,7 @@ export default async function HskLevelPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <Link href="/hsk" className="text-sm text-neutral-500 hover:text-red-600 dark:text-neutral-400">
+      <Link href="/hsk" className="text-sm text-neutral-500 hover:text-brand-600 dark:text-neutral-400">
         ← All HSK levels
       </Link>
 

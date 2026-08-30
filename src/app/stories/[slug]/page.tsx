@@ -17,7 +17,7 @@ export default async function StoryPage({
   return (
     <div>
       <div className="mx-auto max-w-3xl px-4 pt-6">
-        <Link href="/stories" className="text-sm text-neutral-500 hover:text-red-600 dark:text-neutral-400">
+        <Link href="/stories" className="text-sm text-neutral-500 hover:text-brand-600 dark:text-neutral-400">
           ← All stories
         </Link>
       </div>

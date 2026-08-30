@@ -5,10 +5,31 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/*
+ * Brand accent color scale, used throughout the UI as bg-brand-*,
+ * text-brand-*, border-brand-*, etc. Defaults to red; the color theme
+ * picker (src/components/ColorThemePicker.tsx) overrides these variables
+ * at runtime via inline styles on <html>, which always win the cascade
+ * over this @theme-generated block regardless of source order.
+ */
+@theme {
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-200: #fecaca;
+  --color-brand-300: #fca5a5;
+  --color-brand-400: #f87171;
+  --color-brand-500: #ef4444;
+  --color-brand-600: #dc2626;
+  --color-brand-700: #b91c1c;
+  --color-brand-800: #991b1b;
+  --color-brand-900: #7f1d1d;
+  --color-brand-950: #450a0a;
+}
+
 html {
   color-scheme: light dark;
 }
 
 ::selection {
-  background-color: #fecaca;
+  background-color: var(--color-brand-200);
 }

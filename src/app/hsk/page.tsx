@@ -31,9 +31,9 @@ export default function HskPage() {
             <Link
               key={level}
               href={`/hsk/${level}`}
-              className="group rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+              className="group rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
             >
-              <p className="text-lg font-semibold group-hover:text-red-600 dark:group-hover:text-red-400">
+              <p className="text-lg font-semibold group-hover:text-brand-600 dark:group-hover:text-brand-400">
                 HSK {level}
               </p>
               <p className="text-xs text-neutral-500 dark:text-neutral-400">

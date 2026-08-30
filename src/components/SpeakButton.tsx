@@ -21,7 +21,7 @@ export default function SpeakButton({
       }}
       aria-label={`Play pronunciation of ${text}`}
       title="Listen"
-      className={`${dims} inline-flex shrink-0 items-center justify-center rounded-full border border-red-200 bg-red-50 text-red-600 transition hover:bg-red-100 active:scale-95 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-400 dark:hover:bg-red-950/70`}
+      className={`${dims} inline-flex shrink-0 items-center justify-center rounded-full border border-brand-200 bg-brand-50 text-brand-600 transition hover:bg-brand-100 active:scale-95 dark:border-brand-900/50 dark:bg-brand-950/40 dark:text-brand-400 dark:hover:bg-brand-950/70`}
     >
       🔊
     </button>

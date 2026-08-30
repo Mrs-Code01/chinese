@@ -19,7 +19,7 @@ export default async function TopicPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <Link href="/topics" className="text-sm text-neutral-500 hover:text-red-600 dark:text-neutral-400">
+      <Link href="/topics" className="text-sm text-neutral-500 hover:text-brand-600 dark:text-neutral-400">
         ← All topics
       </Link>
 

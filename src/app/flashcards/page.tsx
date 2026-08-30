@@ -93,7 +93,7 @@ export default function FlashcardsPage() {
         <button
           type="button"
           onClick={() => setDeckKey((k) => k + 1)}
-          className="text-sm font-medium text-red-600 hover:underline dark:text-red-400"
+          className="text-sm font-medium text-brand-600 hover:underline dark:text-brand-400"
         >
           🔀 Shuffle / restart deck
         </button>

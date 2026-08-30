@@ -36,6 +36,10 @@ pronunciation tip, and a note on exactly when to use it.
   "nǐ↘↗ hǎo↘↗"), generated automatically from the pinyin by
   `src/lib/pinyinPhonetics.ts` — not hand-written, so it works for every
   entry (past and future) with zero extra data-entry cost.
+- **🎨 Theme** picker in the header: 12 accent colors (red, orange, amber,
+  yellow, green, emerald, teal, cyan, blue, indigo, purple, pink) applied
+  instantly across the whole site and remembered on your device
+  (`src/components/ColorThemePicker.tsx`, `src/lib/colorThemes.ts`).
 - **Favorites** (☆) saved to your device via `localStorage`.
 - **Flashcards** mode: flip cards, filter by topic/HSK/favorites, mark
   "still learning" vs "know this" (progress saved locally).

@@ -67,7 +67,7 @@ export default function VoiceSettings() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-neutral-300 px-3 py-1.5 text-sm font-medium text-neutral-600 transition hover:border-red-300 hover:text-red-600 dark:border-neutral-700 dark:text-neutral-300 dark:hover:text-red-400"
+        className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-neutral-300 px-3 py-1.5 text-sm font-medium text-neutral-600 transition hover:border-brand-300 hover:text-brand-600 dark:border-neutral-700 dark:text-neutral-300 dark:hover:text-brand-400"
       >
         🔊 Voice
       </button>
@@ -123,7 +123,7 @@ export default function VoiceSettings() {
                   key={voice.voiceURI}
                   className={`flex cursor-pointer items-center justify-between gap-3 rounded-xl border p-3 transition ${
                     selected === voice.voiceURI
-                      ? "border-red-400 bg-red-50 dark:border-red-800 dark:bg-red-950/30"
+                      ? "border-brand-400 bg-brand-50 dark:border-brand-800 dark:bg-brand-950/30"
                       : "border-neutral-200 dark:border-neutral-800"
                   }`}
                 >

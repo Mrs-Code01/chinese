@@ -86,8 +86,8 @@ function TabButton({
       onClick={onClick}
       className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
         active
-          ? "bg-red-600 text-white"
-          : "text-neutral-600 hover:text-red-600 dark:text-neutral-300 dark:hover:text-red-400"
+          ? "bg-brand-600 text-white"
+          : "text-neutral-600 hover:text-brand-600 dark:text-neutral-300 dark:hover:text-brand-400"
       }`}
     >
       {children}

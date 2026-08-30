@@ -149,13 +149,13 @@ export default function QuizGame({
           const isCorrect = opt.id === question.prompt.id;
           const isSelected = opt.id === selected;
           let style =
-            "border-neutral-200 bg-white hover:border-red-300 dark:border-neutral-800 dark:bg-neutral-900";
+            "border-neutral-200 bg-white hover:border-brand-300 dark:border-neutral-800 dark:bg-neutral-900";
           if (selected) {
             if (isCorrect) {
               style =
                 "border-emerald-400 bg-emerald-50 dark:border-emerald-700 dark:bg-emerald-950/40";
             } else if (isSelected) {
-              style = "border-red-400 bg-red-50 dark:border-red-800 dark:bg-red-950/40";
+              style = "border-brand-400 bg-brand-50 dark:border-brand-800 dark:bg-brand-950/40";
             } else {
               style = "border-neutral-200 bg-white opacity-60 dark:border-neutral-800 dark:bg-neutral-900";
             }
@@ -189,7 +189,7 @@ export default function QuizGame({
           <button
             type="button"
             onClick={next}
-            className="rounded-full bg-red-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-red-700"
+            className="rounded-full bg-brand-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
           >
             {index + 1 < questions.length ? "Next question →" : "See results"}
           </button>

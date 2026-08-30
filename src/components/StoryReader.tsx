@@ -14,7 +14,7 @@ export default function StoryReader({ story }: { story: Story }) {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+          <p className="text-sm font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-400">
             HSK {story.hsk} story
           </p>
           <h1 className="mt-1 text-2xl font-bold">
@@ -28,7 +28,7 @@ export default function StoryReader({ story }: { story: Story }) {
         <button
           type="button"
           onClick={() => playChinese(fullText, 0.8)}
-          className="shrink-0 rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-red-700"
+          className="shrink-0 rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
         >
           🔊 Play story
         </button>
@@ -58,7 +58,7 @@ export default function StoryReader({ story }: { story: Story }) {
               type="button"
               onClick={() => playChinese(selected.hanzi)}
               aria-label={`Play pronunciation of ${selected.hanzi}`}
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-red-200 bg-white text-base transition hover:bg-red-50 dark:border-red-900/50 dark:bg-neutral-900"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-200 bg-white text-base transition hover:bg-brand-50 dark:border-brand-900/50 dark:bg-neutral-900"
             >
               🔊
             </button>
@@ -82,13 +82,13 @@ export default function StoryReader({ story }: { story: Story }) {
                       key={tIdx}
                       type="button"
                       onClick={() => setSelected(tok)}
-                      className={`flex flex-col items-center rounded px-1 pb-0.5 pt-1 transition hover:bg-red-50 dark:hover:bg-red-950/40 ${
-                        selected === tok ? "bg-red-100 dark:bg-red-950/60" : ""
+                      className={`flex flex-col items-center rounded px-1 pb-0.5 pt-1 transition hover:bg-brand-50 dark:hover:bg-brand-950/40 ${
+                        selected === tok ? "bg-brand-100 dark:bg-brand-950/60" : ""
                       }`}
                     >
                       <span
                         className={`border-b border-dotted border-neutral-300 font-serif text-2xl leading-tight dark:border-neutral-600 ${
-                          selected === tok ? "text-red-700 dark:text-red-400" : ""
+                          selected === tok ? "text-brand-700 dark:text-brand-400" : ""
                         }`}
                       >
                         {tok.hanzi}
