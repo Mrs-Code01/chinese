@@ -17,14 +17,14 @@ export default function SearchBox({ compact = false }: { compact?: boolean }) {
       }}
       className={compact ? "w-full" : "mx-auto w-full max-w-xl"}
     >
-      <div className="flex items-center gap-2 rounded-full border border-neutral-300 bg-white px-4 py-2 shadow-sm focus-within:border-brand-400 dark:border-neutral-700 dark:bg-neutral-900">
+      <div className="flex min-w-0 items-center gap-2 rounded-full border border-neutral-300 bg-white px-4 py-2 shadow-sm focus-within:border-brand-400 dark:border-neutral-700 dark:bg-neutral-900">
         <span aria-hidden>🔍</span>
         <input
           type="search"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Search words or sentences (hanzi, pinyin, or English)..."
-          className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-400"
+          className="w-full min-w-0 bg-transparent text-sm outline-none placeholder:text-neutral-400"
         />
       </div>
     </form>
