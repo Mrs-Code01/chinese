@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Story, StoryToken } from "@/data/storyTypes";
-import { speakChinese } from "@/lib/tts";
+import { playChinese } from "@/lib/tts";
 import PhoneticGuide from "./PhoneticGuide";
 
 export default function StoryReader({ story }: { story: Story }) {
@@ -27,7 +27,7 @@ export default function StoryReader({ story }: { story: Story }) {
         </div>
         <button
           type="button"
-          onClick={() => speakChinese(fullText, 0.8)}
+          onClick={() => playChinese(fullText, 0.8)}
           className="shrink-0 rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-red-700"
         >
           🔊 Play story
@@ -56,7 +56,7 @@ export default function StoryReader({ story }: { story: Story }) {
             </div>
             <button
               type="button"
-              onClick={() => speakChinese(selected.hanzi)}
+              onClick={() => playChinese(selected.hanzi)}
               aria-label={`Play pronunciation of ${selected.hanzi}`}
               className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-red-200 bg-white text-base transition hover:bg-red-50 dark:border-red-900/50 dark:bg-neutral-900"
             >
@@ -112,7 +112,7 @@ export default function StoryReader({ story }: { story: Story }) {
               <button
                 type="button"
                 onClick={() =>
-                  speakChinese(sentence.tokens.map((t) => t.hanzi).join(""), 0.8)
+                  playChinese(sentence.tokens.map((t) => t.hanzi).join(""), 0.8)
                 }
                 aria-label="Play this sentence"
                 className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-sm dark:border-neutral-700 dark:bg-neutral-800"

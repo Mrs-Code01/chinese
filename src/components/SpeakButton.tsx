@@ -1,6 +1,6 @@
 "use client";
 
-import { speakChinese } from "@/lib/tts";
+import { playChinese } from "@/lib/tts";
 
 export default function SpeakButton({
   text,
@@ -17,7 +17,7 @@ export default function SpeakButton({
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        speakChinese(text);
+        playChinese(text);
       }}
       aria-label={`Play pronunciation of ${text}`}
       title="Listen"

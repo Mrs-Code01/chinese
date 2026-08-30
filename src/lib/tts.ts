@@ -1,3 +1,5 @@
+import audioManifest from "@/data/audioManifest.json";
+
 const PREFERRED_VOICE_KEY = "hs-preferred-voice-uri";
 
 export interface RankedVoice {
@@ -122,4 +124,19 @@ export function speakChinese(text: string, rate = 0.85): void {
 
 export function isTtsSupported(): boolean {
   return typeof window !== "undefined" && !!window.speechSynthesis;
+}
+
+/**
+ * Plays real, natural-sounding pre-generated audio (see scripts/generate-audio.ts)
+ * when we have it for this exact text, falling back to the browser's built-in
+ * (more robotic) speech synthesis otherwise.
+ */
+export function playChinese(text: string, rate = 0.85): void {
+  const url = (audioManifest as Record<string, string>)[text.trim()];
+  if (url && typeof window !== "undefined") {
+    const audio = new Audio(url);
+    audio.play().catch(() => speakChinese(text, rate));
+    return;
+  }
+  speakChinese(text, rate);
 }

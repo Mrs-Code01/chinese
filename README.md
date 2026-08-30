@@ -21,8 +21,10 @@ pronunciation tip, and a note on exactly when to use it.
   sentence.
 - Every sentence has: hanzi, pinyin, English meaning, HSK level, and a usage
   note explaining the real-life context.
-- **Text-to-speech** on every card (🔊 button), using the browser's built-in
-  Chinese voice — no setup required. A **🔊 Voice** picker in the header
+- **Text-to-speech** on every card (🔊 button). If a real, studio-quality
+  neural clip has been generated for that exact text (see "Real neural audio"
+  below), it plays that; otherwise it falls back to the browser's built-in
+  Chinese voice. A **🔊 Voice** picker in the header
   (`src/components/VoiceSettings.tsx`) auto-ranks every Chinese voice your
   browser/OS has installed (favoring genuinely natural neural voices like
   Windows/Edge's "Online (Natural)" voices, Google's voice, and macOS's
@@ -52,6 +54,38 @@ pronunciation tip, and a note on exactly when to use it.
 
 This is intentionally a **solid starter core, not the finish line** — see
 "Growing toward 5,000 + 5,000" below for how to keep expanding it.
+
+## Real neural audio (ElevenLabs)
+
+Browser text-to-speech is free and needs no setup, but it caps out at
+"pretty robotic" on most devices. `scripts/generate-audio.ts` generates real,
+natural-sounding Mandarin clips via the [ElevenLabs](https://elevenlabs.io)
+API (free tier, no credit card, ~10,000 characters/month) and records them in
+`src/data/audioManifest.json`. Any word/sentence/story text with an entry in
+that manifest plays the real clip; everything else still falls back to
+browser TTS automatically — no code changes needed as you add more audio
+over time.
+
+**This must be run from a machine with normal internet access** — it calls
+`api.elevenlabs.io` directly, which a sandboxed Claude Code session cannot
+reach.
+
+```bash
+# 1. Get a free API key: elevenlabs.io → sign up with just an email →
+#    Developers (left sidebar) → API Keys → Create API Key
+# 2. Put it in .env.local (already gitignored, never commit it):
+echo "ELEVENLABS_API_KEY=sk_..." > .env.local
+
+# 3. Generate audio (prioritizes words first, then sentences, then stories):
+npm run generate-audio
+```
+
+The free tier resets monthly, so a single run won't cover the whole dataset
+(~2,000 unique strings right now). The script stops itself right at the
+character budget (default ~9,000/run, override with `AUDIO_CHAR_BUDGET=...`)
+and remembers what it's already generated, so re-running next month picks up
+exactly where it left off — safe to run repeatedly. Generated `.mp3` files go
+in `public/audio/` and should be committed alongside the updated manifest.
 
 ## Getting started
 
