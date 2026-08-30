@@ -73,10 +73,16 @@ reach.
 ```bash
 # 1. Get a free API key: elevenlabs.io → sign up with just an email →
 #    Developers (left sidebar) → API Keys → Create API Key
-# 2. Put it in .env.local (already gitignored, never commit it):
+# 2. Get a usable voice ID: Voices (left sidebar - NOT Voice Library) →
+#    pick one of your account's own "Default" voices → copy its Voice ID.
+#    (Free-tier keys get a 402 "paid_plan_required" error on Voice Library
+#    voices, even ones that play fine on the website - only your own
+#    account's Default voices work via the API on a free plan.)
+# 3. Put both in .env.local (already gitignored, never commit it):
 echo "ELEVENLABS_API_KEY=sk_..." > .env.local
+echo "ELEVENLABS_VOICE_ID=..." >> .env.local
 
-# 3. Generate audio (prioritizes words first, then sentences, then stories):
+# 4. Generate audio (prioritizes words first, then sentences, then stories):
 npm run generate-audio
 ```
 

@@ -36,10 +36,11 @@ try {
 }
 
 const API_KEY = process.env.ELEVENLABS_API_KEY;
-// "Rachel", one of ElevenLabs' default multilingual voices - works well with
-// eleven_multilingual_v2 for Chinese. Override with your own voice id (from
-// https://elevenlabs.io/app/voice-library) via ELEVENLABS_VOICE_ID.
-const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || "21m00Tcm4TlvDq8ikWAM";
+// Free-tier API keys can only use voices from your own account's "Default"
+// voices (My Voices -> Type: Default), NOT Voice Library voices - those
+// 402 with "paid_plan_required" even though they render fine in the web UI.
+// There's no universally-safe hardcoded default, so this must be set.
+const VOICE_ID = process.env.ELEVENLABS_VOICE_ID;
 const MODEL_ID = "eleven_multilingual_v2";
 // Free tier is ~10,000 characters/month - leave a small buffer.
 const CHAR_BUDGET = Number(process.env.AUDIO_CHAR_BUDGET || 9000);
@@ -122,6 +123,22 @@ async function main(): Promise<void> {
     return;
   }
 
+  if (!VOICE_ID) {
+    console.error(
+      "Missing ELEVENLABS_VOICE_ID.\n" +
+        "Free-tier API keys can only use a voice from your own account's " +
+        '"Default" voices, not the shared Voice Library (those 402 with ' +
+        "paid_plan_required even though they play fine on the website).\n\n" +
+        "In the ElevenLabs dashboard: Voices (left sidebar, not Voice Library) " +
+        '-> pick a voice, e.g. one of the built-in "Default" ones -> copy its ' +
+        "Voice ID, then add it to .env.local as:\n" +
+        "  ELEVENLABS_VOICE_ID=...\n" +
+        "then run: npm run generate-audio"
+    );
+    process.exitCode = 1;
+    return;
+  }
+
   await mkdir(PUBLIC_AUDIO_DIR, { recursive: true });
   const manifest = await loadManifest();
   const texts = collectTexts();
@@ -167,6 +184,15 @@ async function main(): Promise<void> {
       console.error(message);
       if (message.includes("401")) {
         console.error("Bad API key - stopping.");
+        stoppedEarly = true;
+        break;
+      }
+      if (message.includes("402") || message.includes("paid_plan_required")) {
+        console.error(
+          "This voice isn't usable by a free-tier API key (it's a Voice Library " +
+            "voice, not one of your account's Default voices). Set ELEVENLABS_VOICE_ID " +
+            "to a voice from My Voices in your ElevenLabs dashboard instead - stopping."
+        );
         stoppedEarly = true;
         break;
       }
