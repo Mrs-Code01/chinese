@@ -40,6 +40,10 @@ pronunciation tip, and a note on exactly when to use it.
   yellow, green, emerald, teal, cyan, blue, indigo, purple, pink) applied
   instantly across the whole site and remembered on your device
   (`src/components/ColorThemePicker.tsx`, `src/lib/colorThemes.ts`).
+- **Learning Journal** (`/journal`): a calendar — click any date to jot down
+  what you learned that day. Days with a note get a highlighted dot. Saved
+  to `localStorage` and never auto-deleted (`src/components/JournalCalendar.tsx`,
+  `src/lib/journal.ts`).
 - **Favorites** (☆) saved to your device via `localStorage`.
 - **Flashcards** mode: flip cards, filter by topic/HSK/favorites, mark
   "still learning" vs "know this" (progress saved locally).

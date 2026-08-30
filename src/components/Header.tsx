@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/flashcards", label: "Flashcards" },
   { href: "/quiz", label: "Quiz" },
   { href: "/favorites", label: "Favorites" },
+  { href: "/journal", label: "Journal" },
 ];
 
 export default function Header() {
