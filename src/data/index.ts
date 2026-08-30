@@ -23,6 +23,8 @@ import * as moneyBanking from "./content/money-banking";
 import * as idiomsProverbs from "./content/idioms-proverbs";
 import * as measureWords from "./content/measure-words";
 import * as emergencySafety from "./content/emergency-safety";
+import * as clothingAppearance from "./content/clothing-appearance";
+import * as relationshipsDating from "./content/relationships-dating";
 
 const modules = [
   greetingsBasics,
@@ -47,6 +49,8 @@ const modules = [
   idiomsProverbs,
   measureWords,
   emergencySafety,
+  clothingAppearance,
+  relationshipsDating,
 ];
 
 export const words: Word[] = modules.flatMap((m) => m.words);

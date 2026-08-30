@@ -6,12 +6,12 @@ pronunciation tip, and a note on exactly when to use it.
 
 ## What's here right now
 
-- **440 words** and **440 sentences**, hand-written (not auto-translated),
-  across **22 real-life topics**: greetings, numbers & time, family, home,
+- **480 words** and **480 sentences**, hand-written (not auto-translated),
+  across **24 real-life topics**: greetings, numbers & time, family, home,
   food & dining, shopping, workplace, school, travel & transport, directions,
   health, weather, emotions, people & appearance, technology/phone, social &
   small talk, hobbies, daily routine, money & banking, idioms & proverbs,
-  measure words, and emergency & safety.
+  measure words, emergency & safety, clothing, and relationships & dating.
 - Every entry is tagged with an **HSK level (1–6)** so you can browse by
   topic or by difficulty.
 - Every word has: hanzi, pinyin with tone marks, part of speech, English

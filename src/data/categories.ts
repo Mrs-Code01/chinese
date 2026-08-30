@@ -133,6 +133,18 @@ export const categories: Category[] = [
     icon: "\u{1F6A8}",
     description: "Police, fire, lost documents, and the phrases you hope to never need but should still know.",
   },
+  {
+    slug: "clothing-appearance",
+    name: "Clothing",
+    icon: "\u{1F455}",
+    description: "Clothing items, colors, sizes, and fit — everything for shopping and dressing for the season.",
+  },
+  {
+    slug: "relationships-dating",
+    name: "Relationships & Dating",
+    icon: "\u{1F495}",
+    description: "Dating, relationships, marriage, and the ups and downs of romantic life.",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {
