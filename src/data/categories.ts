@@ -145,6 +145,12 @@ export const categories: Category[] = [
     icon: "\u{1F495}",
     description: "Dating, relationships, marriage, and the ups and downs of romantic life.",
   },
+  {
+    slug: "essential-basics",
+    name: "Essential Basics",
+    icon: "\u{1F9F1}",
+    description: "Core HSK1 building blocks — question words, common verbs, adjectives, and connectors used in almost every sentence.",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {

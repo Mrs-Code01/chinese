@@ -25,6 +25,7 @@ import * as measureWords from "./content/measure-words";
 import * as emergencySafety from "./content/emergency-safety";
 import * as clothingAppearance from "./content/clothing-appearance";
 import * as relationshipsDating from "./content/relationships-dating";
+import * as essentialBasics from "./content/essential-basics";
 
 const modules = [
   greetingsBasics,
@@ -51,6 +52,7 @@ const modules = [
   emergencySafety,
   clothingAppearance,
   relationshipsDating,
+  essentialBasics,
 ];
 
 export const words: Word[] = modules.flatMap((m) => m.words);

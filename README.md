@@ -6,12 +6,13 @@ pronunciation tip, and a note on exactly when to use it.
 
 ## What's here right now
 
-- **480 words** and **480 sentences**, hand-written (not auto-translated),
-  across **24 real-life topics**: greetings, numbers & time, family, home,
+- **550 words** and **520 sentences**, hand-written (not auto-translated),
+  across **25 real-life topics**: greetings, numbers & time, family, home,
   food & dining, shopping, workplace, school, travel & transport, directions,
   health, weather, emotions, people & appearance, technology/phone, social &
   small talk, hobbies, daily routine, money & banking, idioms & proverbs,
-  measure words, emergency & safety, clothing, and relationships & dating.
+  measure words, emergency & safety, clothing, relationships & dating, and
+  essential HSK1 basics (question words, core verbs/adjectives, connectors).
 - Every entry is tagged with an **HSK level (1–6)** so you can browse by
   topic or by difficulty.
 - Every word has: hanzi, pinyin with tone marks, part of speech, English
@@ -33,6 +34,13 @@ pronunciation tip, and a note on exactly when to use it.
 - **Quiz** mode: multiple-choice, mixing hanzi→meaning and meaning→hanzi
   questions, filterable by topic/HSK/question count.
 - **Search** across all words and sentences by hanzi, pinyin, or English.
+- **Story Book** (`/stories`): 12 short stories (growing toward 50) built
+  from real vocabulary, tied to the theme of moving to and living in China
+  (airport arrival, apartment hunting, first day at work, Spring Festival,
+  and more). Every word in every story is clickable — tap it to see its
+  meaning, pinyin, an optional grammar note explaining why that word is used
+  there, and hear it spoken aloud. Each sentence also shows its English
+  translation and has its own play button.
 
 This is intentionally a **solid starter core, not the finish line** — see
 "Growing toward 5,000 + 5,000" below for how to keep expanding it.
@@ -61,16 +69,21 @@ src/
     content/            # one file per topic, exports `words` + `sentences`
       greetings-basics.ts
       numbers-time.ts
-      ... (18 files total)
+      ... (25 files total)
     index.ts            # aggregates all content + search/filter helpers
+    storyTypes.ts        # Story/StorySentence/StoryToken types + t() helper
+    stories/              # story content files + index.ts aggregator
   lib/
     tts.ts              # browser text-to-speech helper
     storage.ts          # localStorage helpers (favorites, progress)
-  components/            # WordCard, SentenceCard, FlashcardDeck, QuizGame, ...
+    pinyinPhonetics.ts   # generates "sounds like" + tone melody from pinyin
+  components/            # WordCard, SentenceCard, FlashcardDeck, QuizGame,
+                          # StoryReader, PhoneticGuide, ...
   app/
     page.tsx             # home dashboard
     topics/               # browse by topic
     hsk/                  # browse by HSK level
+    stories/               # story book list + reader
     flashcards/            # flashcard practice
     quiz/                  # multiple-choice quiz
     favorites/             # starred items
@@ -106,10 +119,48 @@ register it in the `modules` array in `src/data/index.ts`. Everything else
 automatically — no other code changes needed.
 
 Good next batches to write, roughly in priority order for someone moving to
-China long-term: numbers/measure words in depth, more HSK 4–6 vocabulary,
-idioms (chengyu) with usage notes, business/negotiation language, apartment
-hunting & contracts, banking & visas in more depth, and regional dialect
-notes (Shanghainese/Cantonese greetings if relevant to where you're headed).
+China long-term: more HSK 1 vocabulary (toward 500+), more HSK 4–6
+vocabulary, business/negotiation language, apartment hunting & contracts in
+more depth, banking & visas in more depth, and regional dialect notes
+(Shanghainese/Cantonese greetings if relevant to where you're headed).
+
+### Growing the Story Book
+
+Stories live in `src/data/stories/` (one file can hold several `Story`
+objects) and are aggregated in `src/data/stories/index.ts`. Each story is
+built with the `t([...])` helper from `src/data/storyTypes.ts`, which takes
+a terse tuple format so you don't have to write a full object per word:
+
+```ts
+import { t, type Story } from "../storyTypes";
+
+const myStory: Story = {
+  slug: "my-story",
+  title: "My Story",
+  hanziTitle: "我的故事",
+  hsk: 1,
+  icon: "📖",
+  summary: "A one-line description shown on the story list page.",
+  sentences: [
+    {
+      translation: "I am learning Chinese.",
+      tokens: t([
+        ["我", "wǒ", "I, me"],
+        ["在", "zài", "[ongoing action marker]"],
+        ["学", "xué", "to learn"],
+        ["中文", "Zhōngwén", "Chinese (language)"],
+        "。", // a plain string = punctuation, rendered but not clickable
+      ]),
+    },
+  ],
+};
+```
+
+The 4th tuple item (optional) is a short grammar/usage tip shown only for
+that word in that sentence — use it sparingly, just for the genuinely
+notable words (了, 的, measure words, aspect markers, etc.), not every word.
+Register new files in the `storyModules` array in `src/data/stories/index.ts`.
+Currently at 12 stories, toward a target of 50.
 
 ## Notes on accuracy
 
