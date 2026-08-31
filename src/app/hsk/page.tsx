@@ -2,7 +2,7 @@ import Link from "next/link";
 import { hskLevels, hskStats } from "@/data";
 
 export const metadata = {
-  title: "HSK Levels — HanyuSprint",
+  title: "HSK Levels — XiaoLi",
 };
 
 const LEVEL_DESCRIPTIONS: Record<number, string> = {

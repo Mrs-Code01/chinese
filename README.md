@@ -1,4 +1,4 @@
-# HanyuSprint 🀄
+# XiaoLi 🀄
 
 A Mandarin learning app built for real life in China — words and everyday
 sentences for home, work, school, travel, and more, each with pinyin, a

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JournalCalendar from "@/components/JournalCalendar";
 
 export const metadata: Metadata = {
-  title: "Learning Journal — HanyuSprint",
+  title: "Learning Journal — XiaoLi",
   description: "Keep a daily log of what you learned in Mandarin, saved on this device.",
 };
 

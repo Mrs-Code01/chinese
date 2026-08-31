@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HanyuSprint — Learn Mandarin for Life in China",
+  title: "XiaoLi — Learn Mandarin for Life in China",
   description:
     "5000+ Chinese words and everyday sentences with pinyin, pronunciation tips, and usage notes, organized by topic and HSK level.",
 };
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <footer className="border-t border-neutral-200 py-6 text-center text-xs text-neutral-500 dark:border-neutral-800 dark:text-neutral-500">
-          HanyuSprint · Built for real conversations in China · 加油！
+          XiaoLi · Built for real conversations in China · 加油！
         </footer>
       </body>
     </html>

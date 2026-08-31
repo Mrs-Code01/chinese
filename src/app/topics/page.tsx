@@ -2,7 +2,7 @@ import Link from "next/link";
 import { categories, categoryStats } from "@/data";
 
 export const metadata = {
-  title: "Topics — HanyuSprint",
+  title: "Topics — XiaoLi",
 };
 
 export default function TopicsPage() {

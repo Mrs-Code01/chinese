@@ -2,7 +2,7 @@ import Link from "next/link";
 import { stories } from "@/data/stories";
 
 export const metadata = {
-  title: "Story Book — HanyuSprint",
+  title: "Story Book — XiaoLi",
 };
 
 export default function StoriesPage() {

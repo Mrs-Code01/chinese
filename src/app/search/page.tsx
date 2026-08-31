@@ -4,7 +4,7 @@ import SentenceCard from "@/components/SentenceCard";
 import type { Word, Sentence } from "@/data/types";
 
 export const metadata = {
-  title: "Search — HanyuSprint",
+  title: "Search — XiaoLi",
 };
 
 export default async function SearchPage({

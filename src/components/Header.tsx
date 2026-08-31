@@ -36,7 +36,7 @@ export default function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2 text-lg font-bold">
           <span aria-hidden>🀄</span>
           <span>
-            <span className="text-brand-600 dark:text-brand-400">Hanyu</span>Sprint
+            <span className="text-brand-600 dark:text-brand-400">Xiao</span>Li
           </span>
         </Link>
 
